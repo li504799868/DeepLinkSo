@@ -45,7 +45,7 @@ publish {
     artifactId = 'DeepLinkSo'//项目名称
     publishVersion = '1.0.0'//版本号
     desc = '深度链接开源库'
-    website = ''
+    website = 'https://github.com/li504799868/DeepLinkSo'
 }
 
 repositories {
