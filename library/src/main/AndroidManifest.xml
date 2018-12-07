@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lzp.deeplinkso">
+
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+
+    <application>
+
+    </application>
+
+</manifest>
