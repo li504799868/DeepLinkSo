@@ -2,8 +2,8 @@ package com.lzp.deeplinkso
 
 import android.content.Context
 import android.util.Log
-import com.lzp.deeplinkso.bean.DeepLinkSoParam
 import com.lzp.deeplinkso.bean.DeepLinkSoOption
+import com.lzp.deeplinkso.bean.DeepLinkSoParam
 import com.lzp.deeplinkso.config.DeepLinkSoConfig
 import com.lzp.deeplinkso.constants.DeepLinkSoConstant
 import com.lzp.deeplinkso.interceptor.IDeepLinkSoInterceptor
@@ -12,7 +12,6 @@ import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
 import java.io.FileInputStream
 import java.io.InputStream
-import java.io.InputStreamReader
 
 /**
  * Created by li.zhipeng on 2018/12/5.
