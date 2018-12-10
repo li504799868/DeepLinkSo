@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeepLinkSo>
+
+    <!-- 版本号 -->
+    <version value="1" />
+
+    <!-- 所有需要支持DeepLink的文件列表 -->
+    <list>
+        <option>
+            <!-- 跳转的页面 -->
+            <class>com.lzp.deeplinkso.demo.MainActivity</class>
+            <page>main</page>
+        </option>
+
+        <option>
+            <!-- 跳转的页面 -->
+            <class>com.lzp.deeplinkso.demo.TestActivity</class>
+            <page>test</page>
+            <params>
+                <key type="Int" value="userId" />
+                <key value="userName" />
+            </params>
+        </option>
+
+    </list>
+
+    <!-- 拦截器会按照配置的顺序依次执行 -->
+    <interceptors>
+        <interceptor>com.lzp.deeplinkso.demo.interceptor.TestInterceptor</interceptor>
+    </interceptors>
+
+</DeepLinkSo>

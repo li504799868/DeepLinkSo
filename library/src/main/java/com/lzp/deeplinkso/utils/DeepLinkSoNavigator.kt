@@ -39,9 +39,10 @@ object DeepLinkSoNavigator {
                             "The option of the page is not found, have you register it in DeepLinkSo.xml?"),
                     option)
             deepLinkFailed(activity)
+            return
         }
 
-        val params = queryParams(option!!, uri)
+        val params = queryParams(option, uri)
 
         if (params == null) {
             DeepLinkSoClient.config.listener?.onDeepLinkFailed(activity,

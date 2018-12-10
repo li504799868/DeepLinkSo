@@ -27,7 +27,7 @@ object DeepLinkSoConstant {
 
     const val TYPE = "type"
 
-    const val INT = "int"
+    const val INT = "Int"
 
     const val LONG  = "Long"
 

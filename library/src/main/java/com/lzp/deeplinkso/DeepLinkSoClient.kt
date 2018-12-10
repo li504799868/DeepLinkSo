@@ -100,7 +100,8 @@ object DeepLinkSoClient {
                             //解析参数的key
                             DeepLinkSoConstant.KEY -> {
                                 val deepLinkParam = DeepLinkSoParam(
-                                        xmlPullParser.getAttributeValue("", DeepLinkSoConstant.TYPE),
+                                        xmlPullParser.getAttributeValue("", DeepLinkSoConstant.TYPE)
+                                                ?: DeepLinkSoConstant.STRING,
                                         xmlPullParser.getAttributeValue("", DeepLinkSoConstant.VALUE)
                                 )
                                 params!!.add(deepLinkParam)

@@ -26,17 +26,17 @@ public class MyApplication extends Application implements IDeepLinkSoListener {
     public void onCreate() {
         super.onCreate();
 
-//        DeepLinkSoClient.INSTANCE.init(this, this);
+        DeepLinkSoClient.INSTANCE.init(this, this);
         // 申请读写内存卡权限
-        AndPermission.with(this).runtime()
-                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-                        DeepLinkSoClient.INSTANCE.init(MyApplication.this, Environment.getExternalStorageDirectory() + "/DeepLinkSo.xml");
-                    }
-                })
-                .start();
+//        AndPermission.with(this).runtime()
+//                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                .onGranted(new Action<List<String>>() {
+//                    @Override
+//                    public void onAction(List<String> data) {
+//                        DeepLinkSoClient.INSTANCE.init(MyApplication.this, Environment.getExternalStorageDirectory() + "/DeepLinkSo.xml");
+//                    }
+//                })
+//                .start();
     }
 
     @Override
