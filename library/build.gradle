@@ -9,7 +9,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0.2"
+        versionName "1.0.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -43,7 +43,7 @@ publish {
     userOrg = 'lizp' // 创建repo的位置
     groupId = 'com.lzp' // 引用的分组名称
     artifactId = 'DeepLinkSo'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.0.3'//版本号
     desc = '深度链接开源库'
     website = 'https://github.com/li504799868/DeepLinkSo'
 }
