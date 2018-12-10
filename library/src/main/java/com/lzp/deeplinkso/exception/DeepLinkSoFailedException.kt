@@ -24,6 +24,12 @@ class DeepLinkSoFailedException(val code: Int, message: String) : Throwable(mess
          * */
         const val CLASS_NOT_FOUND = -3
 
+        /**
+         * 未注册指定的page
+         * */
+        const val PAGE_NOT_REGISTER = -4
+
+
     }
 
 }

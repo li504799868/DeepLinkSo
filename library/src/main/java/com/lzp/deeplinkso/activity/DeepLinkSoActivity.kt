@@ -32,6 +32,15 @@ class DeepLinkSoActivity : AppCompatActivity() {
 
             // 得到指定的配置信息
             val option = DeepLinkSoClient.config.getOption(page!!)
+            // 如果没有找到相关配置
+            if(option == null){
+                DeepLinkSoClient.config.listener?.onDeepLinkFailed(this,
+                        DeepLinkSoFailedException(DeepLinkSoFailedException.PAGE_NOT_REGISTER,
+                                "The option of the page is not found, have you register it in DeepLinkSo.xml?"),
+                        option)
+                deepLinkFailed()
+            }
+
             val params = queryParams(option!!, uri)
 
             if (params == null) {
@@ -45,7 +54,7 @@ class DeepLinkSoActivity : AppCompatActivity() {
             // 判断是否拦截此次跳转
             if (needIntercept(option, params)) {
                 DeepLinkSoClient.config.listener?.onDeepLinkFailed(this,
-                        DeepLinkSoFailedException(DeepLinkSoFailedException.PARAMS_NULL, "failed by intercept"),
+                        DeepLinkSoFailedException(DeepLinkSoFailedException.INTERCEPT, "failed by intercept"),
                         option)
                 deepLinkFailed()
                 return

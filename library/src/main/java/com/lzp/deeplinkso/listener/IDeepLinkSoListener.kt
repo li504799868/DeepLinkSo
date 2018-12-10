@@ -23,6 +23,6 @@ interface IDeepLinkSoListener {
     /**
      * 打开指定的页面失败
      * */
-    fun onDeepLinkFailed(context: Context, throwable: Throwable, option: DeepLinkSoOption)
+    fun onDeepLinkFailed(context: Context, throwable: Throwable, option: DeepLinkSoOption?)
 
 }
