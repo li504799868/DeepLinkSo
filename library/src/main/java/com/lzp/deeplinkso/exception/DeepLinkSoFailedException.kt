@@ -29,6 +29,7 @@ class DeepLinkSoFailedException(val code: Int, message: String) : Throwable(mess
          * */
         const val PAGE_NOT_REGISTER = -4
 
+        const val UNKNOWN = -5
 
     }
 

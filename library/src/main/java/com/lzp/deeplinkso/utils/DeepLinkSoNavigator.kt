@@ -89,8 +89,18 @@ object DeepLinkSoNavigator {
                 }
             }
         }
-        context.startActivity(intent)
-        DeepLinkSoClient.config.listener?.onDeepLinkSuccess(context, option, params)
+        try {
+            context.startActivity(intent)
+            DeepLinkSoClient.config.listener?.onDeepLinkSuccess(context, option, params)
+        } catch (e: Exception) {
+            DeepLinkSoClient.config.listener?.onDeepLinkFailed(
+                    context,
+                    DeepLinkSoFailedException(
+                            DeepLinkSoFailedException.UNKNOWN,
+                            "startActivity failed by unknown reason"
+                    ),
+                    option)
+        }
     }
 
     /**
