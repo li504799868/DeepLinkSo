@@ -9,19 +9,27 @@ object DeepLinkSoConstant {
 
     const val VERSION = "version"
 
-    const val INTERCEPTORS = "interceptors"
+    const val COMMON_INTERCEPTORS = "common-interceptors"
 
-    const val INTERCEPTOR = "interceptor"
+    const val COMMON_INTERCEPTOR = "common-interceptor"
 
-    const val LIST = "list"
+    /**************Option配置****************/
 
-    const val OPTION = "option"
+    const val ACTIVITY = "Activity"
+
+    const val EVENT = "Event"
 
     const val CLAZZ = "class"
 
     const val PAGE = "page"
 
     const val PRAMS = "params"
+
+    const val INTERCEPTORS = "interceptors"
+
+    const val INTERCEPTOR = "interceptor"
+
+    const val SKIP_COMMON_INTERCEPTOR = "skipCommonInterceptor"
 
     const val KEY = "key"
 

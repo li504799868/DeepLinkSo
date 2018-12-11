@@ -1,7 +1,7 @@
 package com.lzp.deeplinkso.demo
 
 import android.content.Context
-import com.lzp.deeplinkso.bean.DeepLinkSoOption
+import com.lzp.deeplinkso.bean.DeepLinkSoRequest
 import com.lzp.deeplinkso.utils.DeepLinkSoNavigator
 
 /**
@@ -9,21 +9,17 @@ import com.lzp.deeplinkso.utils.DeepLinkSoNavigator
  */
 object DeepLinkManager {
 
-    private var option: DeepLinkSoOption? = null
+    private var request: DeepLinkSoRequest? = null
 
-    private var params: HashMap<String, Any>? = null
-
-    fun save(option: DeepLinkSoOption, params: HashMap<String, Any>) {
-        this.option = option
-        this.params = params
+    fun save(request: DeepLinkSoRequest) {
+        this.request = request
 
     }
 
     fun startActivity(context: Context) {
-        if (option != null && params != null) {
-            DeepLinkSoNavigator.startActivity(context, option!!, params!!)
-            this.option = null
-            this.params = null
+        if (request != null) {
+            DeepLinkSoNavigator.startActivity(context, request!!)
+            this.request = null
         }
     }
 

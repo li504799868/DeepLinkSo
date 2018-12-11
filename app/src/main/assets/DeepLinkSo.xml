@@ -4,29 +4,45 @@
     <!-- 版本号 -->
     <version value="1" />
 
+    <!-- 拦截器会按照配置的顺序依次执行 -->
+    <common-interceptors>
+        <common-interceptor>com.lzp.deeplinkso.demo.interceptor.TestInterceptor</common-interceptor>
+    </common-interceptors>
+
     <!-- 所有需要支持DeepLink的文件列表 -->
     <list>
-        <option>
-            <!-- 跳转的页面 -->
+
+        <!-- 跳转的页面 -->
+        <Activity>
             <class>com.lzp.deeplinkso.demo.MainActivity</class>
             <page>main</page>
-        </option>
+        </Activity>
 
-        <option>
-            <!-- 跳转的页面 -->
+        <!-- 跳转的页面 -->
+        <Activity>
             <class>com.lzp.deeplinkso.demo.TestActivity</class>
             <page>test</page>
             <params>
-                <key type="Int" value="userId" />
+                <key type="Long" value="userId" />
                 <key value="userName" />
             </params>
-        </option>
+            <!-- 是否跳过公共Interceptor -->
+            <skipCommonInterceptor>true</skipCommonInterceptor>
+            <!-- 私有拦截器 -->
+            <!--<interceptors>-->
+                <!--<interceptor>com.lzp.deeplinkso.demo.interceptor.TestInterceptor</interceptor>-->
+            <!--</interceptors>-->
+        </Activity>
+
+        <!-- 自定义事件 -->
+        <Event>
+            <class>com.lzp.deeplinkso.demo.handler.TestEventHandler</class>
+            <page>event</page>
+            <params>
+                <key value="eventId" />
+            </params>
+        </Event>
 
     </list>
-
-    <!-- 拦截器会按照配置的顺序依次执行 -->
-    <interceptors>
-        <interceptor>com.lzp.deeplinkso.demo.interceptor.TestInterceptor</interceptor>
-    </interceptors>
 
 </DeepLinkSo>

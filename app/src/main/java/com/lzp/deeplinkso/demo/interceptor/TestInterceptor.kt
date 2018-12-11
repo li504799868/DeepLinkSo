@@ -2,7 +2,7 @@ package com.lzp.deeplinkso.demo.interceptor
 
 import android.content.Context
 import android.widget.Toast
-import com.lzp.deeplinkso.bean.DeepLinkSoOption
+import com.lzp.deeplinkso.bean.DeepLinkSoRequest
 import com.lzp.deeplinkso.demo.DeepLinkManager
 import com.lzp.deeplinkso.interceptor.IDeepLinkSoInterceptor
 
@@ -13,11 +13,11 @@ import com.lzp.deeplinkso.interceptor.IDeepLinkSoInterceptor
  */
 class TestInterceptor : IDeepLinkSoInterceptor {
 
-    override fun intercept(context: Context, option: DeepLinkSoOption, params: HashMap<String, Any>): Boolean {
-        Toast.makeText(context, option.page, Toast.LENGTH_LONG).show()
+    override fun intercept(context: Context, request: DeepLinkSoRequest): Boolean {
+        Toast.makeText(context, request.option!!.page, Toast.LENGTH_LONG).show()
         // 这里拦截跳转并保存跳转信息
-        if (option.page == "test") {
-            DeepLinkManager.save(option, params)
+        if (request.option!!.page == "test") {
+            DeepLinkManager.save(request)
             return true
         }
 

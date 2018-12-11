@@ -13,7 +13,7 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        val userId = intent.getIntExtra("userId", 0)
+        val userId = intent.getLongExtra("userId", 0)
         val userName = intent.getStringExtra("userName")
         Toast.makeText(this, "$userId:$userName", Toast.LENGTH_SHORT).show()
     }

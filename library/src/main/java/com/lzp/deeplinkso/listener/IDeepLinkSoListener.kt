@@ -1,7 +1,7 @@
 package com.lzp.deeplinkso.listener
 
 import android.content.Context
-import com.lzp.deeplinkso.bean.DeepLinkSoOption
+import com.lzp.deeplinkso.bean.DeepLinkSoRequest
 
 /**
  * Created by li.zhipeng on 2018/12/5.
@@ -18,11 +18,11 @@ interface IDeepLinkSoListener {
     /**
      * 打开指定的页面成功
      * */
-    fun onDeepLinkSuccess(context: Context, option: DeepLinkSoOption, params: HashMap<String, Any>)
+    fun onDeepLinkSuccess(context: Context, request: DeepLinkSoRequest)
 
     /**
      * 打开指定的页面失败
      * */
-    fun onDeepLinkFailed(context: Context, throwable: Throwable, option: DeepLinkSoOption?)
+    fun onDeepLinkFailed(context: Context, request: DeepLinkSoRequest, throwable: Throwable)
 
 }

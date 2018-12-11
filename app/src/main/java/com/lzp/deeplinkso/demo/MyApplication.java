@@ -1,21 +1,14 @@
 package com.lzp.deeplinkso.demo;
 
-import android.Manifest;
 import android.app.Application;
 import android.content.Context;
-import android.os.Environment;
 import android.widget.Toast;
 
-import com.lzp.deeplinkso.bean.DeepLinkSoOption;
-import com.lzp.deeplinkso.listener.IDeepLinkSoListener;
 import com.lzp.deeplinkso.DeepLinkSoClient;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
+import com.lzp.deeplinkso.bean.DeepLinkSoRequest;
+import com.lzp.deeplinkso.listener.IDeepLinkSoListener;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by li.zhipeng on 2018/12/6.
@@ -45,14 +38,12 @@ public class MyApplication extends Application implements IDeepLinkSoListener {
     }
 
     @Override
-    public void onDeepLinkSuccess(@NotNull Context context, @NotNull DeepLinkSoOption option, @NotNull HashMap<String, Object> params) {
-        Toast.makeText(context, "onDeepLinkSuccess：" + option.getPage(), Toast.LENGTH_SHORT).show();
+    public void onDeepLinkSuccess(@NotNull Context context, @NotNull DeepLinkSoRequest request) {
+        Toast.makeText(context, "onDeepLinkSuccess：" + request.getUri(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void onDeepLinkFailed(@NotNull Context context, @NotNull Throwable throwable, @NotNull DeepLinkSoOption option) {
+    public void onDeepLinkFailed(@NotNull Context context, @NotNull DeepLinkSoRequest request, @NotNull Throwable throwable) {
         Toast.makeText(context, throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
-
-
 }
