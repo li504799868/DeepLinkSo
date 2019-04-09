@@ -11,6 +11,16 @@ import com.lzp.deeplinkso.bean.DeepLinkSoRequest
 interface IDeepLinkSoListener {
 
     /**
+     * 第一次初始化
+     * */
+    fun onFirstInit()
+
+    /**
+     * 版本号发生变化的回调，第一个也会被执行
+     * */
+    fun onVersionChanged(oldVersion: String, newVersion: String)
+
+    /**
      * app被启动
      * */
     fun onLaunch(context: Context)

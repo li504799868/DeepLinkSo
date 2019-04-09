@@ -138,16 +138,24 @@ object DeepLinkSoParser {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+        // 计算一下启动时间
         Log.e("lzp", "${System.currentTimeMillis() - start}")
     }
 
     /**
      * 解析版本号
      * */
-    /**
-     * 解析版本号
-     * */
     private fun parseVersionCode(xmlPullParser: XmlPullParser) {
-        DeepLinkSoClient.config.setVersionCode(xmlPullParser.getAttributeValue("", DeepLinkSoConstant.VALUE))
+        val oldVersionCode = DeepLinkSoClient.config.getVersionCode()
+        val newVersionCode = xmlPullParser.getAttributeValue("", DeepLinkSoConstant.VALUE)
+        // 如果是第一次初始化
+        if (oldVersionCode.isEmpty()) {
+            DeepLinkSoClient.config.listener?.onFirstInit()
+        }
+        // 判断版本号是否发生改变
+        else if (oldVersionCode != newVersionCode){
+            DeepLinkSoClient.config.listener?.onVersionChanged(oldVersionCode, newVersionCode)
+        }
+        DeepLinkSoClient.config.setVersionCode(newVersionCode)
     }
 }

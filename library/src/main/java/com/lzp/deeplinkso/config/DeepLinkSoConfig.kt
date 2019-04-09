@@ -18,7 +18,7 @@ class DeepLinkSoConfig {
      *
      *  无实际作用，仅仅是为了区别xml的版本
      * */
-    private var version = "0"
+    private var version: String = ""
 
     internal var listener: IDeepLinkSoListener? = null
 
@@ -71,7 +71,7 @@ class DeepLinkSoConfig {
     internal fun getEventOption(key: String) = eventOptionMap[key]
 
     /**
-     * 清楚配置项
+     * 清除配置项
      * */
     internal fun reset() {
         activityOptionMap.clear()

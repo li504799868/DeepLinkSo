@@ -2,6 +2,8 @@ package com.lzp.deeplinkso.demo;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.lzp.deeplinkso.DeepLinkSoClient;
@@ -19,17 +21,33 @@ public class MyApplication extends Application implements IDeepLinkSoListener {
     public void onCreate() {
         super.onCreate();
 
-        DeepLinkSoClient.INSTANCE.init(this, this);
+         DeepLinkSoClient.builder()
+                .setContext(this)
+                .setDeepLinkSoListener(this)
+                .build();
         // 申请读写内存卡权限
 //        AndPermission.with(this).runtime()
 //                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
 //                .onGranted(new Action<List<String>>() {
 //                    @Override
 //                    public void onAction(List<String> data) {
-//                        DeepLinkSoClient.INSTANCE.init(MyApplication.this, Environment.getExternalStorageDirectory() + "/DeepLinkSo.xml");
+//                          DeepLinkSoClient.builder()
+//                                .setXMLPath(Environment.getExternalStorageDirectory() + "/DeepLinkSo.xml")
+//                                .setDeepLinkSoListener(this)
+//                                .build();
 //                    }
 //                })
 //                .start();
+    }
+
+    @Override
+    public void onFirstInit() {
+        Log.e("lzp", "onFirstInit");
+    }
+
+    @Override
+    public void onVersionChanged(@NonNull String oldVersion, @NonNull String newVersion) {
+        Log.e("lzp", "onVersionChanged：" + oldVersion + " to " + newVersion);
     }
 
     @Override
@@ -46,4 +64,6 @@ public class MyApplication extends Application implements IDeepLinkSoListener {
     public void onDeepLinkFailed(@NotNull Context context, @NotNull DeepLinkSoRequest request, @NotNull Throwable throwable) {
         Toast.makeText(context, throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
+
+
 }
